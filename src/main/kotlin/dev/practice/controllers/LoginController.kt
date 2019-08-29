@@ -34,8 +34,7 @@ class LoginController {
 
     @GetMapping("/user/add/{firstName}/{lastName}/{country}")
     fun addUser(@PathVariable firstName: String, @PathVariable lastName: String, @PathVariable country: String) :Collection<FinaDev>{
-        userService.addUser(firstName, lastName, country)
-        return userService.getAllUser()
+        return userService.addUser(firstName, lastName, country)
     }
 
 }

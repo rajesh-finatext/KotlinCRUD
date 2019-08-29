@@ -15,8 +15,9 @@ class UserService {
     fun getUserDetails(id: String) = usrRepo.findById(id.toLong())
 
     fun getAllUser() = usrRepo.findAll()
-    fun addUser(firstName: String, lastName: String, country: String) {
-        usrRepo.save(FinaDev( 0, firstName, lastName, country))
+    fun addUser(firstName: String, lastName: String, country: String) :Collection<FinaDev> {
+        usrRepo.save(FinaDev( (getAllUser().count()+1).toLong(), firstName, lastName, country))
+        return getAllUser()
     }
 //        FinaDev(34,"Rajesh", "Sundaram", "India")
 
